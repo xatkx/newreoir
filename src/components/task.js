@@ -1,14 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+
+
 
 class Task extends React.Component {
+
+    botonStyle = () => {
+        return {
+        border: 'none',
+        borderRadius: "2px",
+        background: "gray",
+        color: "#fff",
+        padding: "10px"
+    }}
 
     styleChange = () => {
         return {
             width: "80%",
-            color:this.props.task.done ? "green": "red",
+            textAlign: "center",
+            color:this.props.task.done ? "green": "blue",
             padding: "10px",
-            background: "gray"
+            background: "#efefff",
+            margin: "15px auto",
+            borderRdius: "5px",
+            boxShadow: "0px 4px 8px rgba(0,0,0,0.2)"
+            
         
       
         }
@@ -23,15 +38,10 @@ class Task extends React.Component {
                 <p>{task.task}</p>
                 <sub>{task.descripcion}</sub>
                 <input type='checkbox' />
-                <input type='button' value='enter' />
+                <input type='button' value='enter' style={this.botonStyle()}/>
             </div>
         )
     }
-}
-
-Task.prototype = {
-
-    task: PropTypes.object.isRequired
 }
 
 export default Task;

@@ -1,0 +1,17 @@
+.btn {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    background: #12c5fca1;
+}
+
+.card {
+    margin: 2rem auto;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+    height: 2rem;
+}
