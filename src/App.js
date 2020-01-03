@@ -19,6 +19,11 @@ class App extends React.Component {
     } 
   }
 
+  tranferTask= (title, description) => { 
+
+    console.log('klk', 'lul')
+  }
+
   listTask = () => {
     return {
         margin: "10px 20% 10px 20%"
@@ -27,7 +32,7 @@ class App extends React.Component {
   render(){
     return (
     <div style={this.listTask()}>
-      <Taskform />
+      <Taskform task={this.tranferTask} />
       <ListTask task={this.state.task}/> 
     </div>
       )

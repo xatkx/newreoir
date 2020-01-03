@@ -8,17 +8,17 @@ export default class taskForm extends React.Component {
         super(props)
 
         this.state = {
-            title: '',
-            description: ''
+            title: 'lol',
+            description: 'lul'
 
         }
     }
 
 
     onSubmit = event => {
-        console.log(event)
-
-        event.preventDefault()
+        //console.log(event)
+        this.props.task.tranferTask(this.state.title,this.state.description)
+        event.preventDefault() 
     }
 
     onChange = event => {
@@ -29,7 +29,7 @@ export default class taskForm extends React.Component {
         })
     }
 
-    styleInput = () => {
+    styleInput = () => { 
         return {
                 margin: '9px 0',
                 border: 'none',
@@ -41,6 +41,7 @@ export default class taskForm extends React.Component {
 
     render(){
 
+        
         return (
             <form className='card' onSubmit={this.onSubmit}>
                 <input name='title' style={this.styleInput()} type='text' placeholder='la pampara' onChange={this.onChange}/>
