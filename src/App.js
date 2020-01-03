@@ -19,9 +19,9 @@ class App extends React.Component {
     } 
   }
 
-  tranferTask= (title, description) => { 
+  tranferTask = (title, description) => { 
 
-    console.log('klk', 'lul')
+    console.log(title, description)
   }
 
   listTask = () => {
@@ -32,7 +32,7 @@ class App extends React.Component {
   render(){
     return (
     <div style={this.listTask()}>
-      <Taskform task={this.tranferTask} />
+      <Taskform tranferTask={this.tranferTask} />
       <ListTask task={this.state.task}/> 
     </div>
       )

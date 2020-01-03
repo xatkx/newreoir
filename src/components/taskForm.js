@@ -17,8 +17,10 @@ export default class taskForm extends React.Component {
 
     onSubmit = event => {
         //console.log(event)
-        this.props.task.tranferTask(this.state.title,this.state.description)
-        event.preventDefault() 
+        event.preventDefault()
+        this.props.tranferTask(this.state.title,this.state.description)
+        
+        return false
     }
 
     onChange = event => {
