@@ -19,15 +19,22 @@ class App extends React.Component {
     } 
   }
 
-  tranferTask = (title, description) => { 
-
-    console.log(title, description)
+  tranferTask = (newTask) => { 
+    console.log(newTask)
+    this.setState(elem => {
+      elem.task.unshift(newTask)
+    })
+    console.log(this.state.task)
   }
 
   listTask = () => {
     return {
         margin: "10px 20% 10px 20%"
     }
+  
+}
+componentDidUpdate(){
+  this.render()
 }
   render(){
     return (

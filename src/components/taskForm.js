@@ -8,26 +8,34 @@ export default class taskForm extends React.Component {
         super(props)
 
         this.state = {
-            title: 'lol',
-            description: 'lul'
-
+           
+            title: '',
+            description: '',
+            done: false,
+            id: 0
         }
     }
 
 
     onSubmit = event => {
-        //console.log(event)
         event.preventDefault()
-        this.props.tranferTask(this.state.title,this.state.description)
+
+        let task = {}
+        task.description = this.state.description
+        task.title = this.state.title
+        task.done = this.state.done
+        task.id = this.state.id
+        
+        this.props.tranferTask(task)
         
         return false
     }
 
     onChange = event => {
-        console.log(event.target.name,event.target.value)
-
+        
         this.setState({
-            [event.target.name]:event.target.value
+            
+                [event.target.name]: event.target.value
         })
     }
 
@@ -49,6 +57,8 @@ export default class taskForm extends React.Component {
                 <input name='title' style={this.styleInput()} type='text' placeholder='la pampara' onChange={this.onChange}/>
                 <br />
                 <textarea name='description' style={this.styleInput()} placeholder='descripcion' onChange={this.onChange}></textarea>
+                 <br />
+                 <input name='done' type="checkbox" onChange={this.onChange}/>
                  <br />
                 <input className='btn'  type='submit' value='enter' />
             </form>

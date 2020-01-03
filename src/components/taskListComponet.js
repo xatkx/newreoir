@@ -10,7 +10,7 @@ class ListTask extends React.Component {
         this.tasks = this.props.task;
         return (
             <div>
-                {this.tasks.map(elem => <Task key={elem.id} task={elem}/>)}
+                {this.tasks.map(elem => <Task key={elem.id+Math.random()} task={elem}/>)}
             </div>
         )
     }
