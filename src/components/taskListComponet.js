@@ -6,11 +6,13 @@ import Task from './task';
 
 class ListTask extends React.Component {
 
+
+
     render() {
         this.tasks = this.props.task;
         return (
             <div>
-                {this.tasks.map(elem => <Task key={elem.id+Math.random()} task={elem}/>)}
+                {this.tasks.map(elem => <Task key={elem.id+Math.random()} task={elem} deletTask={this.props.deletTask} check={this.props.check}/>)}
             </div>
         )
     }

@@ -21,10 +21,11 @@ export default class taskForm extends React.Component {
         event.preventDefault()
 
         let task = {}
-        task.description = this.state.description
-        task.title = this.state.title
-        task.done = this.state.done
-        task.id = this.state.id
+        
+        task.id = this.state.id + Math.random();
+        task.task = this.state.title;
+        task.descripcion = this.state.description;
+        task.done = false;
         
         this.props.tranferTask(task)
         

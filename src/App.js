@@ -21,10 +21,31 @@ class App extends React.Component {
 
   tranferTask = (newTask) => { 
     console.log(newTask)
-    this.setState(elem => {
-      elem.task.unshift(newTask)
+    this.setState( {
+      task: [...this.state.task, newTask]
     })
     console.log(this.state.task)
+  }
+
+  deletTask = id => {
+      this.setState({
+        task: this.state.task.filter(elem => elem.id !== id)
+      })
+  }
+
+  checkTask = id => {
+
+    const newTask = this.state.task.map(elem => {
+      if (elem.id === id)
+      {
+        elem.done = !elem.done
+      }  
+      return elem;
+    })
+
+    this.setState({
+      task: newTask 
+    })
   }
 
   listTask = () => {
@@ -40,7 +61,7 @@ componentDidUpdate(){
     return (
     <div style={this.listTask()}>
       <Taskform tranferTask={this.tranferTask} />
-      <ListTask task={this.state.task}/> 
+      <ListTask task={this.state.task} deletTask={this.deletTask} check={this.checkTask}/> 
     </div>
       )
   }

@@ -6,9 +6,9 @@ class Task extends React.Component {
 
     botonStyle = () => {
         return {
+        background: 'red',
         border: 'none',
         borderRadius: "2px",
-        background: "gray",
         color: "#fff",
         padding: "10px"
     }}
@@ -17,7 +17,7 @@ class Task extends React.Component {
         return {
             width: "80%",
             textAlign: "center",
-            color:this.props.task.done ? "green": "blue",
+            color:this.props.task.done ? "blue": "#a90000",
             padding: "10px",
             background: "#efefff",
             margin: "15px auto",
@@ -32,13 +32,14 @@ class Task extends React.Component {
 
     render(){
 
-        const {task} = this.props
+        const {task, deletTask, check} = this.props
+        
         return (
             <div  style={this.styleChange()} key={task.id}>
                 <p>{task.task}</p>
                 <sub>{task.descripcion}</sub>
-                <input type='checkbox' />
-                <input type='button' value='enter' style={this.botonStyle()}/>
+                <input type='checkbox' onChange={check.bind(this,task.id)}/>
+                <input type='button' value='eliminar' style={this.botonStyle()} onClick={deletTask.bind(this,task.id)}/>
             </div>
         )
     }
